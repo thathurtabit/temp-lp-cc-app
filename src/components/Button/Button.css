@@ -1,0 +1,19 @@
+.button {
+  background: blue;
+  border: 0;
+  border-radius: 3px;
+  color: white;
+  font-size: 1rem;
+  padding: 10px 15px;
+  margin: 5px;
+}
+
+.button:hover {
+  background: red;
+  cursor: pointer;
+}
+
+.button:disabled {
+  background: grey;
+  cursor: not-allowed;
+}
