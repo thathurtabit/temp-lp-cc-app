@@ -11,43 +11,33 @@ export const useSelectChatProviderScript = () => {
   const { pathname } = useLocation();
   const { fullPageAdData } = state;
 
-  const livePersonWaitForScriptReady = () => {
-    const livePersonIsReady = (data: any) => {
-      console.log({ data });
-    };
-
-    window.lpTag.events.bind({
-      eventName: "OFFER_DISPLAY",
-      appName: "LP_OFFERS",
-      func: livePersonIsReady,
-      context: null,
-      async: false, //default is false,
-      triggerOnce: true, //default is false
-    });
-  };
-
   useEffect(() => {
     const { gubagoo, livePerson } = pageRoutes;
 
-    const chatProvider = fullPageAdData?.chatProvider || "";
+    const getScriptIdFormat = (scriptId: string) =>
+      `script-${scriptId.toLowerCase().replace(" ", "-")}`;
+
+    const chatProviderRaw = fullPageAdData?.chatProvider || "";
+    const scriptId = getScriptIdFormat(chatProviderRaw);
     const DID = fullPageAdData?.DID || 0;
 
     switch (pathname) {
       case gubagoo.slug:
-        fullPageAdData && addGubagooScript(fullPageAdData, chatProvider, DID);
+        fullPageAdData && addGubagooScript(fullPageAdData, scriptId, DID);
         dispatch(AppActions.setIsChatReady(true));
         break;
       case livePerson.slug:
-        addLivePersonScript(chatProvider);
-        livePersonWaitForScriptReady();
+        addLivePersonScript(scriptId);
         break;
       default:
         break;
     }
 
     return () => {
+      dispatch(AppActions.setIsChatReady(false));
+
       // On unmount, remove script
-      const scriptTag = document.getElementById(`script-${chatProvider}`);
+      const scriptTag = document.getElementById(scriptId);
       if (scriptTag) {
         scriptTag?.parentNode?.removeChild(scriptTag);
       }

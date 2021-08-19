@@ -5,7 +5,7 @@ const scriptText =
 
 export const addLivePersonScript = (scriptId: string) => {
   addScript({
-    id: `script-${scriptId}`,
+    id: scriptId,
     text: scriptText,
     appendTo: "head",
   });

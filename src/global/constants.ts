@@ -1,11 +1,4 @@
-import { EChatProviders } from "./types";
-
-interface PageRoutes {
-  [key: string]: {
-    slug: string;
-    title: EChatProviders;
-  };
-}
+import { EChatProviders, PageRoutes } from "./types";
 
 export const pageRoutes: PageRoutes = {
   gubagoo: {
@@ -16,4 +9,9 @@ export const pageRoutes: PageRoutes = {
     slug: "/live-person",
     title: EChatProviders.LIVE_PERSON,
   },
+};
+
+export const engagementClass = {
+  chat: "lp-chat-engagement",
+  text: "lp-text-engagement",
 };

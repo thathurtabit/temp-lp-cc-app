@@ -1,16 +1,17 @@
-import { EButtonTypes, EChatProviders } from "./../global/types";
+import { EButtonTypes, EChatProviders, ILivePerson } from "./../global/types";
 import { getConversationId } from "./getConversationId";
 interface IStartCharOrText {
   chatProvider: EChatProviders;
   type: EButtonTypes;
+  livePerson?: ILivePerson;
 }
 
 export const startChatOrText = async ({
   chatProvider,
   type,
+  livePerson,
 }: IStartCharOrText) => {
   const conversationId = await getConversationId();
-  console.log(`Start ${type} for ${chatProvider}`);
 
   switch (chatProvider) {
     case EChatProviders.GUBAGOO:
@@ -30,8 +31,22 @@ export const startChatOrText = async ({
       }
       break;
     case EChatProviders.LIVE_PERSON:
+      const hiddenLivePersonChatEngagement = livePerson?.chatButtonRef;
+      const hiddenLivePersonTextEngagement = livePerson?.textButtonRef;
+
       if (type === EButtonTypes.CHAT) {
+        const generatedEmbeddedButton: HTMLElement =
+          hiddenLivePersonChatEngagement?.current?.children.item(
+            0
+          ) as HTMLElement;
+        generatedEmbeddedButton.click();
       } else {
+        hiddenLivePersonTextEngagement?.current?.click();
+        const generatedEmbeddedButton: HTMLElement =
+          hiddenLivePersonTextEngagement?.current?.children.item(
+            0
+          ) as HTMLElement;
+        generatedEmbeddedButton.click();
       }
       break;
     default:

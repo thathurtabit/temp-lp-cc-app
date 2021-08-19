@@ -17,7 +17,7 @@ export const addGubagooScript = (
   if (DID) {
     addScript({
       src: `https://cdn.gubagoo.io/toolbars/integration/ATUK_${DID}.js`,
-      id: `script-${scriptId}`,
+      id: scriptId,
       async: true,
     });
   }

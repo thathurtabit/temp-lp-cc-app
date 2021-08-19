@@ -1,4 +1,4 @@
-import { IFullPageAdData } from "./../../global/types";
+import { IFullPageAdData, ILivePerson } from "./../../global/types";
 import { Dispatch } from "react";
 // ==================
 // ENUMS
@@ -11,6 +11,7 @@ export interface IApp {
   fullPageAdData?: IFullPageAdData;
   conversationId?: string;
   isChatReady: boolean;
+  livePerson?: ILivePerson;
 }
 
 // Misc.

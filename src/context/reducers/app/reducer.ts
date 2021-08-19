@@ -22,6 +22,30 @@ export const appReducer = (
         ...state,
         isChatReady: payload,
       };
+    case Actions.SET_LIVEPERSON_ENGAGEMENT_DATA:
+      return {
+        ...state,
+        livePerson: {
+          ...state.livePerson,
+          engagementData: payload,
+        },
+      };
+    case Actions.SET_LIVEPERSON_CHAT_BUTTON_REF:
+      return {
+        ...state,
+        livePerson: {
+          ...state.livePerson,
+          chatButtonRef: payload,
+        },
+      };
+    case Actions.SET_LIVEPERSON_TEXT_BUTTON_REF:
+      return {
+        ...state,
+        livePerson: {
+          ...state.livePerson,
+          textButtonRef: payload,
+        },
+      };
     default:
       return state;
   }

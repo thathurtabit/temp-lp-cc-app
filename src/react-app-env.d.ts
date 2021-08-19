@@ -2,7 +2,9 @@
 
 interface Window {
   gubagooCustomParams: any;
-  lpTag: any;
+  lpTag: {
+    events: any;
+  };
   ggChat: Function;
   ggToolbar: {
     apps: {

@@ -1,3 +1,5 @@
+import { RefObject } from "react";
+
 export enum EChatProviders {
   GUBAGOO = "Gubagoo",
   LIVE_PERSON = "Live Person",
@@ -6,6 +8,13 @@ export enum EChatProviders {
 export enum EButtonTypes {
   CHAT = "Chat",
   TEXT = "Text",
+}
+
+export interface PageRoutes {
+  [key: string]: {
+    slug: string;
+    title: EChatProviders;
+  };
 }
 
 export interface IFullPageAdData {
@@ -17,4 +26,10 @@ export interface IFullPageAdData {
   vin: string;
   stockType: "USED" | "NEW";
   trim: string;
+}
+
+export interface ILivePerson {
+  engagementData?: Object;
+  chatButtonRef?: RefObject<HTMLButtonElement>;
+  textButtonRef?: RefObject<HTMLButtonElement>;
 }
