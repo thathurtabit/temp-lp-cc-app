@@ -16,7 +16,7 @@ export const useBindToLivePersonReady = () => {
       };
 
       // Bind to this LP event and run callback on complete
-      window.lpTag.events.bind({
+      window.lpTag?.events?.bind({
         eventName: "OFFER_DISPLAY",
         appName: "LP_OFFERS",
         func: livePersonCallback,
