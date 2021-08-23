@@ -11,7 +11,8 @@ export const Header: FC = () => {
 
       <nav className="nav">
         <Link to="/gubagoo">Gubagoo Chat</Link>
-        <Link to="/live-person">Live Person</Link>
+        <Link to="/live-person">Live Person #1</Link>
+        <Link to="/live-person-2">Live Person #2</Link>
       </nav>
     </header>
   );

@@ -14,6 +14,9 @@ export const FullPageAd: FC = () => {
   const { state, dispatch } = useContext(AppContext);
   const { fullPageAdData } = state;
   const chatProvider = fullPageAdData?.chatProvider;
+  const make = fullPageAdData?.make;
+  const model = fullPageAdData?.model;
+  const condition = fullPageAdData?.stockType;
 
   useSelectChatProviderScript();
   useBindToLivePersonReady();
@@ -26,6 +29,9 @@ export const FullPageAd: FC = () => {
   return (
     <section>
       <h1>{chatProvider}</h1>
+      <p>
+        {make} / {model} / {condition}
+      </p>
       <Button text="Chat Now" type={EButtonTypes.CHAT} />
       <Button text="Send Text" type={EButtonTypes.TEXT} />
       <div>

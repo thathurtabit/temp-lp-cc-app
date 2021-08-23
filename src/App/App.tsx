@@ -18,6 +18,9 @@ export const App = () => {
             <Route path="/live-person">
               <FullPageAd />
             </Route>
+            <Route path="/live-person-2">
+              <FullPageAd />
+            </Route>
             <Route path="/">
               <Home />
             </Route>

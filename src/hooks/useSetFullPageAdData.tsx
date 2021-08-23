@@ -41,6 +41,20 @@ export const useSetFullPageAdData = () => {
           })
         );
         break;
+      case `${livePerson.slug}-2`:
+        dispatch(
+          AppActions.setFullPageAdData({
+            DID: 10000247,
+            chatProvider: EChatProviders.LIVE_PERSON,
+            year: 1984,
+            make: "Testarossa",
+            model: "Ferarri",
+            vin: "123abc",
+            stockType: "USED",
+            trim: "red",
+          })
+        );
+        break;
 
       default:
         dispatch(AppActions.setFullPageAdData(undefined));
