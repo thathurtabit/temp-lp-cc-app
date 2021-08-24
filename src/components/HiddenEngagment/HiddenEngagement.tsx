@@ -3,6 +3,7 @@ import { AppContext } from "../../context/context/AppContext";
 import { EButtonTypes, EChatProviders } from "../../global/types";
 import { IHiddenEngagement } from "./HiddenEngagement.types";
 import { engagementClass } from "../../global/constants";
+import "./HiddenEngagement.css";
 
 export const HiddenEngagement = forwardRef<HTMLSpanElement, IHiddenEngagement>(
   ({ type }, ref) => {
