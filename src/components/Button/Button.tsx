@@ -6,12 +6,13 @@ import { AppContext } from "../../context/context/AppContext";
 import { startChatOrText } from "../../utils/startChatOrText";
 
 export const Button: FC<IButton> = ({ text, type, additionalClassNames }) => {
-  const { state } = useContext(AppContext);
+  const { state, dispatch } = useContext(AppContext);
   const { fullPageAdData, isChatReady, livePerson } = state;
   const chatProvider = fullPageAdData?.chatProvider;
 
   const handleStartChatOrText = () => {
-    chatProvider && startChatOrText({ chatProvider, type, livePerson });
+    chatProvider &&
+      startChatOrText({ chatProvider, type, livePerson, dispatch });
   };
 
   return (

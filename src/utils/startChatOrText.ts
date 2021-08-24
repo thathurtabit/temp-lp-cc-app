@@ -1,17 +1,24 @@
+import { Dispatch } from "react";
 import { EButtonTypes, EChatProviders, ILivePerson } from "./../global/types";
 import { getConversationId } from "./getConversationId";
+import * as AppActions from "../context/actions/app/actions";
+
 interface IStartCharOrText {
   chatProvider: EChatProviders;
   type: EButtonTypes;
   livePerson?: ILivePerson;
+  dispatch: Dispatch<any>;
 }
 
 export const startChatOrText = async ({
   chatProvider,
   type,
   livePerson,
+  dispatch,
 }: IStartCharOrText) => {
   const conversationId = await getConversationId();
+
+  dispatch(AppActions.setConversationId(conversationId));
 
   switch (chatProvider) {
     case EChatProviders.GUBAGOO:
