@@ -13,10 +13,10 @@ export const FullPageAd: FC = () => {
   const livePersonTextButtonRef = useRef(null);
   const { state, dispatch } = useContext(AppContext);
   const { fullPageAdData } = state;
-  const chatProvider = fullPageAdData?.chatProvider;
   const make = fullPageAdData?.make;
   const model = fullPageAdData?.model;
   const condition = fullPageAdData?.stockType;
+  const title = fullPageAdData?.title;
 
   useSelectChatProviderScript();
   useBindToLivePersonReady();
@@ -28,7 +28,7 @@ export const FullPageAd: FC = () => {
 
   return (
     <section>
-      <h1>{chatProvider}</h1>
+      <h1>{title}</h1>
       <p>
         {make} / {model} / {condition}
       </p>

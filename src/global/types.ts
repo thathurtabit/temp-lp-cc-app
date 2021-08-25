@@ -18,6 +18,7 @@ export interface PageRoutes {
 }
 
 export interface IFullPageAdData {
+  title: string;
   chatProvider: EChatProviders;
   DID: number;
   year: number;

@@ -16,6 +16,7 @@ export const useSetFullPageAdData = () => {
       case gubagoo.slug:
         dispatch(
           AppActions.setFullPageAdData({
+            title: "Gugaboo",
             DID: 4400,
             chatProvider: EChatProviders.GUBAGOO,
             year: 2000,
@@ -30,6 +31,7 @@ export const useSetFullPageAdData = () => {
       case livePerson.slug:
         dispatch(
           AppActions.setFullPageAdData({
+            title: "Live Person #1",
             DID: 10000247,
             chatProvider: EChatProviders.LIVE_PERSON,
             year: 2020,
@@ -44,11 +46,12 @@ export const useSetFullPageAdData = () => {
       case `${livePerson.slug}-2`:
         dispatch(
           AppActions.setFullPageAdData({
-            DID: 10000248,
+            title: "Live Person #2",
+            DID: 20380,
             chatProvider: EChatProviders.LIVE_PERSON,
             year: 1984,
-            make: "Testarossa",
-            model: "Ferarri",
+            make: "Ferarri",
+            model: "Testarossa",
             vin: "123abc",
             stockType: "USED",
             trim: "red",

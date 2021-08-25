@@ -27,6 +27,7 @@ export const useSelectChatProviderScript = () => {
         dispatch(AppActions.setIsChatReady(true));
         break;
       case livePerson.slug:
+      case `${livePerson.slug}-2`:
         addLivePersonScript(scriptId);
         break;
       default:
