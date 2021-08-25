@@ -44,7 +44,7 @@ export const useSetFullPageAdData = () => {
       case `${livePerson.slug}-2`:
         dispatch(
           AppActions.setFullPageAdData({
-            DID: 10000247,
+            DID: 10000248,
             chatProvider: EChatProviders.LIVE_PERSON,
             year: 1984,
             make: "Testarossa",

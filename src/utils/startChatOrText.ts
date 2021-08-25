@@ -18,8 +18,6 @@ export const startChatOrText = async ({
 }: IStartCharOrText) => {
   const conversationId = await getConversationId();
 
-  dispatch(AppActions.setConversationId(conversationId));
-
   switch (chatProvider) {
     case EChatProviders.GUBAGOO:
       if (type === EButtonTypes.CHAT) {
@@ -38,6 +36,8 @@ export const startChatOrText = async ({
       }
       break;
     case EChatProviders.LIVE_PERSON:
+      dispatch(AppActions.setConversationId(conversationId));
+
       const hiddenLivePersonChatEngagement = livePerson?.chatButtonRef;
       const hiddenLivePersonTextEngagement = livePerson?.textButtonRef;
 
