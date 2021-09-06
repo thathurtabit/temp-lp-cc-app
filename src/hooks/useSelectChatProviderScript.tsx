@@ -23,13 +23,11 @@ export const useSelectChatProviderScript = () => {
 
     switch (pathname) {
       case gubagoo.slug:
-        console.log("adding script: ", scriptId);
         fullPageAdData && addGubagooScript(fullPageAdData, scriptId, DID);
         dispatch(AppActions.setIsChatReady(true));
         break;
       case livePerson.slug:
       case `${livePerson.slug}-2`:
-        console.log("adding script: ", scriptId);
         addLivePersonScript(scriptId);
         break;
       default:
@@ -39,11 +37,11 @@ export const useSelectChatProviderScript = () => {
     return () => {
       dispatch(AppActions.setIsChatReady(false));
 
-      console.log("remove script tag: ", scriptId);
-
       // On unmount, remove script
       const scriptTag = document.getElementById(scriptId);
+
       if (scriptTag) {
+        // remove script tag
         scriptTag?.parentNode?.removeChild(scriptTag);
       }
     };
