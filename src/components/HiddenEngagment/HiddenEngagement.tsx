@@ -17,7 +17,10 @@ export const HiddenEngagement = forwardRef<HTMLSpanElement, IHiddenEngagement>(
       type === EButtonTypes.CHAT ? engagementClass.chat : engagementClass.text;
 
     const dataAttrs = {
-      "data-lp-referenceid": fullPageAdData.DID,
+      "data-lp-referenceid":
+        type === EButtonTypes.CHAT
+          ? fullPageAdData.chatRefID
+          : fullPageAdData.textRefID,
       "data-lp-sdes": JSON.stringify([
         {
           type: "voi",

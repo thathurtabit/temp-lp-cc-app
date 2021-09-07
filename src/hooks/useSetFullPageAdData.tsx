@@ -33,6 +33,8 @@ export const useSetFullPageAdData = () => {
           AppActions.setFullPageAdData({
             title: "Live Person #1",
             DID: 10000247,
+            chatRefID: 10000247,
+            textRefID: 66897,
             chatProvider: EChatProviders.LIVE_PERSON,
             year: 2020,
             make: "Vauxhall",
@@ -48,6 +50,8 @@ export const useSetFullPageAdData = () => {
           AppActions.setFullPageAdData({
             title: "Live Person #2",
             DID: 20380,
+            chatRefID: 20380,
+            textRefID: 66897,
             chatProvider: EChatProviders.LIVE_PERSON,
             year: 1984,
             make: "Ferarri",
