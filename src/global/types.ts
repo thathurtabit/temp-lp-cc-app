@@ -21,6 +21,8 @@ export interface IFullPageAdData {
   title: string;
   chatProvider: EChatProviders;
   DID: number;
+  chatRefID?: number;
+  textRefID?: number;
   year: number;
   make: string;
   model: string;

@@ -4,10 +4,10 @@ export const useOnPageChange = (URL: string) => {
   useEffect(() => {
     // Close active window
     console.log("LivePerson: attempt to close active window");
-    window.lpTag?.taglets?.lpUnifiedWindow &&
-      window.lpTag.taglets.lpUnifiedWindow.onBeforeNavigation({
-        dispose: true,
-      });
+    // window.lpTag?.taglets?.lpUnifiedWindow &&
+    //   window.lpTag.taglets.lpUnifiedWindow.onBeforeNavigation({
+    //     dispose: true,
+    //   });
 
     console.log("LivePerson: window.lpTag.newPage(...)");
     // https://developers.liveperson.com/web-tag-new-page-refresh.html
@@ -15,13 +15,6 @@ export const useOnPageChange = (URL: string) => {
       window.lpTag.newPage(URL, {
         section: [],
         sdes: [],
-        taglets: {
-          rendererStub: {
-            divIdsToKeep: {
-              divId: true,
-            },
-          },
-        },
       });
   }, [URL]);
 };

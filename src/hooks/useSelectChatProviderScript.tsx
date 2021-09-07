@@ -35,7 +35,7 @@ export const useSelectChatProviderScript = () => {
     }
 
     return () => {
-      dispatch(AppActions.setIsChatReady(false));
+      //dispatch(AppActions.setIsChatReady(false));
 
       // On unmount, remove script
       const scriptTag = document.getElementById(scriptId);
@@ -44,6 +44,12 @@ export const useSelectChatProviderScript = () => {
         // remove script tag
         scriptTag?.parentNode?.removeChild(scriptTag);
       }
+
+      console.log("unmounting...");
+      window.lpTag?.taglets?.lpUnifiedWindow &&
+        window.lpTag.taglets.lpUnifiedWindow.onBeforeNavigation({
+          dispose: true,
+        });
     };
   }, [pathname, fullPageAdData, dispatch]);
 };
