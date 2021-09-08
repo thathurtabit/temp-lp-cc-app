@@ -5,6 +5,7 @@ import * as AppActions from "../context/actions/app/actions";
 import { pageRoutes } from "../global/constants";
 import { addGubagooScript } from "../utils/addGubagooScript";
 import { addLivePersonScript } from "../utils/addLivePersonScript";
+import { HiddenEngagement } from "../components/HiddenEngagment/HiddenEngagement";
 
 export const useSelectChatProviderScript = () => {
   const { state, dispatch } = useContext(AppContext);
@@ -40,9 +41,26 @@ export const useSelectChatProviderScript = () => {
       // On unmount, remove script
       const scriptTag = document.getElementById(scriptId);
 
+      var parent = document.getElementsByClassName("gan-test1")[0];
+      var child = parent ? parent.children[0] : undefined;
+
+      if (parent && child) {
+       console.log("remove child")
+       parent.removeChild(child);
+       parent.removeAttribute('id');
+      //parent.remove();
+      }
+
+    //  aa()
       if (scriptTag) {
         // remove script tag
-        scriptTag?.parentNode?.removeChild(scriptTag);
+        console.log("remove window")
+        window.lpTag?.taglets?.lpUnifiedWindow &&
+        window.lpTag.taglets.lpUnifiedWindow.onBeforeNavigation({
+          dispose: true,
+        });
+        //scriptTag?.parentNode?.removeChild(scriptTag);
+
       }
 
       console.log("unmounting...");

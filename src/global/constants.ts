@@ -12,6 +12,6 @@ export const pageRoutes: PageRoutes = {
 };
 
 export const engagementClass = {
-  chat: "lp-chat-engagement",
-  text: "lp-text-engagement",
+  chat: "gan-test1",
+  text: "gan-test2",
 };

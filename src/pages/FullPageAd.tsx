@@ -20,7 +20,6 @@ export const FullPageAd: FC = () => {
 
   useSelectChatProviderScript();
   useBindToLivePersonReady();
-
   useEffect(() => {
     dispatch(AppActions.setLivePersonChatButtonRef(livePersonChatButtonRef));
     dispatch(AppActions.setLivePersonTextButtonRef(livePersonTextButtonRef));

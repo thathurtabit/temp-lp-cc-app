@@ -11,7 +11,6 @@ export const useSetFullPageAdData = () => {
   const { pathname } = useLocation();
   useEffect(() => {
     const { gubagoo, livePerson } = pageRoutes;
-
     switch (pathname) {
       case gubagoo.slug:
         dispatch(
