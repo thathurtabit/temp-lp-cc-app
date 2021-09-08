@@ -49,7 +49,7 @@ export const useSetFullPageAdData = () => {
           AppActions.setFullPageAdData({
             title: "Live Person #2",
             DID: 20380,
-            chatRefID: 20380,
+            chatRefID: 10000247,
             textRefID: 66897,
             chatProvider: EChatProviders.LIVE_PERSON,
             year: 1984,

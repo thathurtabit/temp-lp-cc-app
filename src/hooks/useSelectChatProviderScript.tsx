@@ -63,11 +63,6 @@ export const useSelectChatProviderScript = () => {
 
       }
 
-      console.log("unmounting...");
-      window.lpTag?.taglets?.lpUnifiedWindow &&
-        window.lpTag.taglets.lpUnifiedWindow.onBeforeNavigation({
-          dispose: true,
-        });
     };
   }, [pathname, fullPageAdData, dispatch]);
 };
