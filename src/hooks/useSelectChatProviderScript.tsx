@@ -38,31 +38,45 @@ export const useSelectChatProviderScript = () => {
     return () => {
       //dispatch(AppActions.setIsChatReady(false));
 
-      // On unmount, remove script
-      const scriptTag = document.getElementById(scriptId);
+      try {  // On unmount, remove script
+        const scriptTag = document.getElementById(scriptId);
 
-      var parent = document.getElementsByClassName("gan-test1")[0];
-      var child = parent ? parent.children[0] : undefined;
+        var parent = document.getElementsByClassName("gan-test1")[0];
+        var parent2 = document.getElementsByClassName("gan-test2")[0];
 
-      if (parent && child) {
-       console.log("remove child")
-       parent.removeChild(child);
-       parent.removeAttribute('id');
-      //parent.remove();
-      }
+        var child = parent ? parent.children[0] : undefined;
+        var child2 = parent2 ? parent2.children[0] : undefined;
 
-    //  aa()
-      if (scriptTag) {
-        // remove script tag
-        console.log("remove window")
-        window.lpTag?.taglets?.lpUnifiedWindow &&
-        window.lpTag.taglets.lpUnifiedWindow.onBeforeNavigation({
-          dispose: true,
-        });
+        if (parent && child && child2) {
+          console.log("remove child web")
+//
+          parent.removeChild(child);
+          parent.removeAttribute('id');
+
+          //parent.remove();
+        }  // WEB
+
+        if (parent && child2){
+          console.log("remove child text")
+
+          parent2.removeChild(child2);
+          parent2.removeAttribute('id');
+
+        } // TEXT
+
+        //  aa()
+        if (scriptTag) {
+          console.log("lpTag.newPage(document.URL) Called")
+          window?.lpTag?.newPage &&
+          window.lpTag.newPage(document.URL);
+          // console.log("remove window")
+          // window.lpTag?.taglets?.lpUnifiedWindow &&
+          //   window.lpTag.taglets.lpUnifiedWindow.onBeforeNavigation({
+          //     dispose: true,
+          //   });
         //scriptTag?.parentNode?.removeChild(scriptTag);
-
-      }
-
+        }
+      } catch (e) { console.log(e); window.lpTag.newPage(document.URL); };
     };
   }, [pathname, fullPageAdData, dispatch]);
 };
