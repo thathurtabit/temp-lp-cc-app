@@ -11,7 +11,6 @@ export const useBindToLivePersonReady = () => {
   useEffect(() => {
     if (chatProvider === EChatProviders.LIVE_PERSON) {
       const livePersonCallback = (data: any) => {
-        console.log("LivePerson is Ready");
         dispatch(AppActions.setLivePersonEngagementData(data));
         dispatch(AppActions.setIsChatReady(true));
       };

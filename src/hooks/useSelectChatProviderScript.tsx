@@ -9,7 +9,9 @@ import { addLivePersonScript } from "../utils/addLivePersonScript";
 export const useSelectChatProviderScript = () => {
   const { state, dispatch } = useContext(AppContext);
   const { pathname } = useLocation();
-  const { fullPageAdData } = state;
+  const { fullPageAdData, livePerson } = state;
+  const chatButtonRef = livePerson?.chatButtonRef?.current;
+  const textButtonRef = livePerson?.textButtonRef?.current;
 
   useEffect(() => {
     const { gubagoo, livePerson } = pageRoutes;
@@ -35,15 +37,35 @@ export const useSelectChatProviderScript = () => {
     }
 
     return () => {
-      dispatch(AppActions.setIsChatReady(false));
+      try {
+        console.log("Attempt to remove child nodes from hidden engagement");
+        const removeAllChildNodes = (parent?: HTMLElement) => {
+          while (parent?.firstChild) {
+            parent.removeChild(parent.firstChild);
+          }
+        };
 
-      // On unmount, remove script
-      const scriptTag = document.getElementById(scriptId);
+        chatButtonRef && removeAllChildNodes(chatButtonRef);
+        textButtonRef && removeAllChildNodes(textButtonRef);
 
-      if (scriptTag) {
-        // remove script tag
-        scriptTag?.parentNode?.removeChild(scriptTag);
+        chatButtonRef?.removeAttribute("id");
+        textButtonRef?.removeAttribute("id");
+
+        // On unmount, remove script
+        const scriptTag = document.getElementById(scriptId);
+
+        if (scriptTag) {
+          // remove script tag
+          console.log("remove window");
+          window.lpTag?.taglets?.lpUnifiedWindow &&
+            window.lpTag.taglets.lpUnifiedWindow.onBeforeNavigation({
+              dispose: true,
+            });
+        }
+      } catch (error) {
+        console.error({ error });
+        window.lpTag.newPage(document.URL);
       }
     };
-  }, [pathname, fullPageAdData, dispatch]);
+  }, [pathname, fullPageAdData, chatButtonRef, textButtonRef, dispatch]);
 };
