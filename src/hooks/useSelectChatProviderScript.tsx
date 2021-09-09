@@ -38,6 +38,9 @@ export const useSelectChatProviderScript = () => {
 
     return () => {
       try {
+        console.log("Set: chat is ready: false");
+        AppActions.setIsChatReady(false);
+
         console.log("Attempt to remove child nodes from hidden engagement");
         const removeAllChildNodes = (parent?: HTMLElement) => {
           while (parent?.firstChild) {

@@ -10,7 +10,7 @@ export const useSetFullPageAdData = () => {
   const { dispatch } = useContext(AppContext);
   const { pathname } = useLocation();
   useEffect(() => {
-    const { gubagoo, livePerson } = pageRoutes;
+    const { gubagoo, livePerson, contactAtOnce } = pageRoutes;
 
     switch (pathname) {
       case gubagoo.slug:
@@ -25,6 +25,21 @@ export const useSetFullPageAdData = () => {
             vin: "xxx",
             stockType: "USED",
             trim: "x-wing",
+          })
+        );
+        break;
+      case contactAtOnce.slug:
+        dispatch(
+          AppActions.setFullPageAdData({
+            title: "Contact At Once",
+            DID: 2629151,
+            chatProvider: EChatProviders.CONTACT_AT_ONCE,
+            year: 2009,
+            make: "BMW",
+            model: "3 Series",
+            vin: "aaabbbccc",
+            stockType: "USED",
+            trim: "with an extra wheel for speed",
           })
         );
         break;

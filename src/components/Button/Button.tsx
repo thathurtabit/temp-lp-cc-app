@@ -12,7 +12,13 @@ export const Button: FC<IButton> = ({ text, type, additionalClassNames }) => {
 
   const handleStartChatOrText = () => {
     chatProvider &&
-      startChatOrText({ chatProvider, type, livePerson, dispatch });
+      startChatOrText({
+        chatProvider,
+        type,
+        livePerson,
+        fullPageAdData,
+        dispatch,
+      });
   };
 
   return (

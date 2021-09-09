@@ -1,6 +1,7 @@
 import { RefObject } from "react";
 
 export enum EChatProviders {
+  CONTACT_AT_ONCE = "Contact At Once",
   GUBAGOO = "Gubagoo",
   LIVE_PERSON = "Live Person",
 }

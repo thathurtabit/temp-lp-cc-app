@@ -15,6 +15,9 @@ export const App = () => {
             <Route path="/gubagoo">
               <FullPageAd />
             </Route>
+            <Route path="/contact-at-once">
+              <FullPageAd />
+            </Route>
             <Route path="/live-person">
               <FullPageAd />
             </Route>

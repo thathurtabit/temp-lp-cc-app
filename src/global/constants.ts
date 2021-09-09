@@ -5,6 +5,10 @@ export const pageRoutes: PageRoutes = {
     slug: "/gubagoo",
     title: EChatProviders.GUBAGOO,
   },
+  contactAtOnce: {
+    slug: "/contact-at-once",
+    title: EChatProviders.CONTACT_AT_ONCE,
+  },
   livePerson: {
     slug: "/live-person",
     title: EChatProviders.LIVE_PERSON,

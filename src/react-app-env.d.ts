@@ -4,6 +4,9 @@ interface Window {
   gubagooCustomParams: any;
   lpTag: {
     events: any;
+    sdk: {
+      exec: Function;
+    };
     taglets: {
       lpUnifiedWindow: {
         onBeforeNavigation: Function;
