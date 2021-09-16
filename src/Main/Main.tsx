@@ -9,5 +9,6 @@ export const Main: FC = ({ children }) => {
   const location = useLocation();
   useOnPageChange(location.pathname);
 
+
   return <main className="main">{children}</main>;
 };

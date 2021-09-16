@@ -5,6 +5,7 @@ import * as AppActions from "../context/actions/app/actions";
 import { pageRoutes } from "../global/constants";
 import { addGubagooScript } from "../utils/addGubagooScript";
 import { addLivePersonScript } from "../utils/addLivePersonScript";
+import { HiddenEngagement } from "../components/HiddenEngagment/HiddenEngagement";
 
 export const useSelectChatProviderScript = () => {
   const { state, dispatch } = useContext(AppContext);
@@ -37,19 +38,45 @@ export const useSelectChatProviderScript = () => {
     return () => {
       //dispatch(AppActions.setIsChatReady(false));
 
-      // On unmount, remove script
-      const scriptTag = document.getElementById(scriptId);
+      try {  // On unmount, remove script
+        const scriptTag = document.getElementById(scriptId);
 
-      if (scriptTag) {
-        // remove script tag
-        scriptTag?.parentNode?.removeChild(scriptTag);
-      }
+        var parent = document.getElementsByClassName("gan-test1")[0];
+        var parent2 = document.getElementsByClassName("gan-test2")[0];
 
-      console.log("unmounting...");
-      window.lpTag?.taglets?.lpUnifiedWindow &&
-        window.lpTag.taglets.lpUnifiedWindow.onBeforeNavigation({
-          dispose: true,
-        });
+        var child = parent ? parent.children[0] : undefined;
+        var child2 = parent2 ? parent2.children[0] : undefined;
+
+        if (parent && child && child2) {
+          console.log("remove child web")
+//
+          parent.removeChild(child);
+          parent.removeAttribute('id');
+
+          //parent.remove();
+        }  // WEB
+
+        if (parent && child2){
+          console.log("remove child text")
+
+          parent2.removeChild(child2);
+          parent2.removeAttribute('id');
+
+        } // TEXT
+
+        //  aa()
+        if (scriptTag) {
+          console.log("lpTag.newPage(document.URL) Called")
+          window?.lpTag?.newPage &&
+          window.lpTag.newPage(document.URL);
+          // console.log("remove window")
+          // window.lpTag?.taglets?.lpUnifiedWindow &&
+          //   window.lpTag.taglets.lpUnifiedWindow.onBeforeNavigation({
+          //     dispose: true,
+          //   });
+        //scriptTag?.parentNode?.removeChild(scriptTag);
+        }
+      } catch (e) { console.log(e); window.lpTag.newPage(document.URL); };
     };
   }, [pathname, fullPageAdData, dispatch]);
 };

@@ -11,7 +11,6 @@ export const useSetFullPageAdData = () => {
   const { pathname } = useLocation();
   useEffect(() => {
     const { gubagoo, livePerson } = pageRoutes;
-
     switch (pathname) {
       case gubagoo.slug:
         dispatch(
@@ -32,7 +31,7 @@ export const useSetFullPageAdData = () => {
         dispatch(
           AppActions.setFullPageAdData({
             title: "Live Person #1",
-            DID: 10000247,
+            DID: 20380,
             chatRefID: 20380,
             textRefID: 66897,
             chatProvider: EChatProviders.LIVE_PERSON,
@@ -49,8 +48,8 @@ export const useSetFullPageAdData = () => {
         dispatch(
           AppActions.setFullPageAdData({
             title: "Live Person #2",
-            DID: 20380,
-            chatRefID: 20380,
+            DID: 10000247,
+            chatRefID: 10000247,
             textRefID: 66897,
             chatProvider: EChatProviders.LIVE_PERSON,
             year: 1984,

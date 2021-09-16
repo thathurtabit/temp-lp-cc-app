@@ -37,6 +37,12 @@ export const HiddenEngagement = forwardRef<HTMLSpanElement, IHiddenEngagement>(
       ]),
     };
 
-    return <span ref={ref} className={className} {...dataAttrs} />;
+    function render() {
+      return (
+        <span ref={ref} className={className} {...dataAttrs} />
+      );
+  }
+
+    return render();
   }
 );
