@@ -5,6 +5,9 @@ interface Window {
   lpTag: {
     events: any;
     taglets: {
+      providerSubscription:{
+        click : Function
+      }
       lpUnifiedWindow: {
         onBeforeNavigation: Function;
       };

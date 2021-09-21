@@ -42,18 +42,20 @@ export const startChatOrText = async ({
       const hiddenLivePersonTextEngagement = livePerson?.textButtonRef;
 
       if (type === EButtonTypes.CHAT) {
-        const generatedEmbeddedButton: HTMLElement =
-          hiddenLivePersonChatEngagement?.current?.children.item(
-            0
-          ) as HTMLElement;
-        generatedEmbeddedButton.click();
+        // const generatedEmbeddedButton: HTMLElement =
+        //   hiddenLivePersonChatEngagement?.current?.children.item(
+        //     0
+        //   ) as HTMLElement;
+        // generatedEmbeddedButton.click();
+        window.lpTag.taglets.providerSubscription.click({referenceId: "20380", engagementId: 3186547350});
       } else {
-        hiddenLivePersonTextEngagement?.current?.click();
-        const generatedEmbeddedButton: HTMLElement =
-          hiddenLivePersonTextEngagement?.current?.children.item(
-            0
-          ) as HTMLElement;
-        generatedEmbeddedButton.click();
+        // hiddenLivePersonTextEngagement?.current?.click();
+        // const generatedEmbeddedButton: HTMLElement =
+        //   hiddenLivePersonTextEngagement?.current?.children.item(
+        //     0
+        //   ) as HTMLElement;
+        // generatedEmbeddedButton.click();
+        window.lpTag.taglets.providerSubscription.click({referenceId: "66897", engagementId: 3186547950});
       }
       break;
     default:
